@@ -18,19 +18,32 @@ public class TileManager {
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
-        tile = new Tile[10];
+        tile = new Tile[50];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
         loadMap("/maps/world01.txt");
     }
 
     public void getTileImage() {
-            setup(0, "snow00", false);
-            setup(1, "snow_with_rock_and_stem", false);
-            setup(2, "water00", true);
-            setup(3, "earth", false);
-            setup(4, "floor01", false);
-            setup(5, "snowtree00", true);
+        // 0 - 9 are placeholders to make maps (which use 11 - 99) align along fixed width, double-digit value columns
+        // TODO(DESIGN-02) make placeholder tile garish/obvious, so if it is accidentally used in a map it's detectable
+        setup(0, "grass00", false);
+        setup(1, "grass00", false);
+        setup(2, "grass00", false);
+        setup(3, "grass00", false);
+        setup(4, "grass00", false);
+        setup(5, "grass00", false);
+        setup(6, "grass00", false);
+        setup(7, "grass00", false);
+        setup(8, "grass00", false);
+        setup(9, "grass00", false);
+
+        setup(10, "snow00", false); // was 0
+        setup(11, "snow_with_rock_and_stem", false); // was 1
+        setup(12, "water00", true); // was 2
+        setup(13, "earth", false); // was 3
+        setup(14, "floor01", false); // was 4
+        setup(15, "snowtree00", true); // was 5
     }
 
     public void setup(int index, String imageName, boolean collision) {

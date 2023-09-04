@@ -77,6 +77,9 @@ public class Player extends Entity {
             int objIndex = gp.collisionChecker.checkObject(this, true);
             pickUpObject(objIndex);
 
+            // CHECK NPC COLLISION
+            int npcIndex = gp.collisionChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
 
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false) {
@@ -111,6 +114,12 @@ public class Player extends Entity {
 
     public void pickUpObject(int index) {
         // 999 means player hasn't touched any object
+        if(index != 999) {
+        }
+    }
+
+    public void interactNPC(int index) {
+        // 999 means player hasn't touched any NPC
         if(index != 999) {
         }
     }
